@@ -6,7 +6,7 @@ const Product = ko.Model('Product', {
     upc: ko.String,
     serialNumber: ko.String,
     price: ko.Number,
-    seller: ko.Model.User,
+    seller: ko.models.User,
     keywords: [ko.String]
 })
 
