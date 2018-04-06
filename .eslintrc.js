@@ -1,7 +1,10 @@
 module.exports = {
     "parserOptions": 
     {
-        "ecmaVersion": 6
+        "ecmaVersion": 6,
     },
-    "extends": "google"
+    "extends": [
+        "google",
+        "plugin:react/recommended",
+    ]
 };

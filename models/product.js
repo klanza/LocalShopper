@@ -1,4 +1,4 @@
-const ko = require('nekodb')
+const ko = require('nekodb');
 
 const Product = ko.Model('Product', {
     productName: ko.String,
@@ -8,6 +8,6 @@ const Product = ko.Model('Product', {
     price: ko.Number,
     seller: ko.models.User,
     keywords: [ko.String]
-})
+});
 
 module.exports = Product;
