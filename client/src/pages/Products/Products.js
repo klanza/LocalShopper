@@ -39,8 +39,8 @@ class Products extends Component {
 	      .catch(err => console.log(err));
 	}
 
-	deleteProduct = productName => {
-	    API.deleteProduct(productName)
+	deleteProduct = id => {
+	    API.deleteProduct(id)
 	      .then(res => this.loadProducts())
 	      .catch(err => console.log(err));
   	};

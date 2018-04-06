@@ -6,13 +6,13 @@ module.exports = {
   findAll: function(req, res) {
     db.Product
       .find(req.query)
-      .sort({ productName: -1 })
+      .sort({ _id: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   findByProductName: function(req, res) {
     db.Product
-      .findById(req.params.productName)
+      .findById(req.params.id)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -24,13 +24,13 @@ module.exports = {
   },
   update: function(req, res) {
     db.Product
-      .findOneAndUpdate({ productName: req.params.productName }, req.body)
+      .findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   remove: function(req, res) {
     db.Product
-      .findByproductName({ productName: req.params.productName })
+      .findById({ _id: req.params.id })
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
