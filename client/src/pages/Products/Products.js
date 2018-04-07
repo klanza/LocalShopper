@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 import { Link } from "react-router-dom";
+import SearchResults from "../../components/SearchResults";
 
 class Products extends Component {
 	state = {
@@ -75,8 +76,6 @@ class Products extends Component {
 	  //   }
   	// };
 
-};
-
 	render() {
 		return (
 			<SearchResults 
@@ -85,6 +84,7 @@ class Products extends Component {
 			/>
 		);
 	}
+}
 
 export default Products;
 

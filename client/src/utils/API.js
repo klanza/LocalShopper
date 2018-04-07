@@ -6,7 +6,7 @@ export default {
   //what's syntax for querying??
   getProducts: function(query) {
     return axios.get("/api/products", { params: { q: query } });
-  }
+  },
   // Gets the book with the given id
   getProduct: function(id) {
     return axios.get("/api/products/" + id);
