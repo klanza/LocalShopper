@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const ko = require('nekodb')
+const routes = require('./routes')
 const PORT = process.env.PORT || 3001;
 const app = express();
 
@@ -17,6 +18,9 @@ ko.connect({
 
 // Send every request to the React app
 // Define any API routes before this runs
+
+// app.use(routes)
+
 app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
