@@ -12,7 +12,7 @@ if (process.env.NODE_ENV === "production") {
 // Connect to the Mongo DB through nekodb
 ko.connect({
     client: 'mongodb',
-    url: 'mongodb://localhost:27017/localshopper'
+    url: process.env.MONGODB_URI || 'mongodb://localhost:27017/localshopper'
 })
 
 // Send every request to the React app
