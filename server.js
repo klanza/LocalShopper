@@ -3,11 +3,20 @@ const path = require("path");
 const ko = require('nekodb')
 const PORT = process.env.PORT || 3001;
 const app = express();
+const bodyParser = require("body-parser");
+const routes = require("./routes");
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+
+// Configure body parser for AJAX requests
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+// Add routes, both API and view
+app.use(routes);
 
 // Connect to the Mongo DB through nekodb
 ko.connect({

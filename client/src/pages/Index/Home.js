@@ -1,100 +1,47 @@
 import React, { Component } from "react";
 //import {DeleteBtn,SaveBtn} from "../../components/DeleteBtn";
 //import Jumbotron from "../../components/Jumbotron";
-//import API from "../../utils/API";
-//import { Link } from "react-router-dom";
+import API from "../utils/API";
+import { Link } from "react-router-dom";
+import SearchForm from "../components/SearchForm";
 //import { Col, Row, Container } from "../../components/Grid";
 //import { List, ListItem } from "../../components/List";
 //import { Input, FormBtn } from "../../components/Form";
 
 class Home extends Component {
-  
- 
 
   state = {
-     // articles:[],
-     // topic : "",
-
-     // start : "",
-     // end : "",
-     // savedArticles: []  
+     products: [],
+     search: ""
   };
-  
-  
-// componentDidMount() {
-//     this.loadArticles();
-//   }
+    
+  componentDidMount() {
+      this.loadProducts();
+    }
 
-//   loadArticles = () => {
-//     API.getArticles()
-//       .then(res => {
-//         console.log(res,res.data);
-//         this.setState({
-//           savedArticles: res.data
-//         })
-//         //console.log(savedArticles);
-//       })
-//       .catch(err => console.log(err));
-//   };
+    loadProducts = () => {
+      API.getProducts()
+        .then(res => {
+          console.log(res, res.data);
+          })
+        .catch(err => console.log(err));
+    };
 
+  handleInputChange = event => {
+    this.setState({ search: event.target.value });
+  };
 
-//   saveArticles = article => {
-//     //pass the object containg all  info related to article to create article in DB /show up in front end
-
-//     API.saveArticles({
-//       title: article.title,
-//       url: article.url,
-//       date: article.date,
-//     })
-//       .then(res => this.loadArticles())
-//       .catch(err => console.log(err));
-//   };
-
-//   deleteArticles = id => {
-//     API.deleteArticles(id)
-//       .then(res => this.loadArticles())
-//       .catch(err => console.log(err));
-//   };
-
-//   handleInputChange = event => {
-//     const { name, value } = event.target;
-//     this.setState({
-//       [name]: value
-//     });
-//   };
-
-//   handleFormSubmit = event => {
-//     event.preventDefault();
-//     console.log(this.state.topic,this.state.start,this.state.end);
-//     // if (this.state.topic) {
-//       API.getNYTArticles(this.state.topic,this.state.start,this.state.end)
-//       .then((NYTdata) => {
-//                let responses = [];
-
-//                 for (var i = 0; i < 5; i++) {
-//                     var doc = NYTdata.data.response.docs[i];
-                   
-//                     var article = {
-//                         title: doc.headline.main,
-//                         url: doc.web_url,
-//                         date: doc.pub_date.split('T')[0],
-                        
-//                     };
-
-//                     responses.push(article);
-//                 }
-//                 console.log(responses);
-               
-
-
-//change state of articles to response from api
-  //       this.setState({articles: responses, topic:"",start:"",end:""}),
-  //       console.log(this.state.articles, this.state.topic)
-  //     })
-        
-  //       .catch(err => console.log(err));
-  //   // }
-  // };
+  handleFormSubmit = event => {
+      event.preventDefault();
+      API.getProduct(this.state.search)
+        .then(res => {
+          if (res.data.status === "error") {
+            throw new Error(res.data.message);
+          }
+          this.setState({ products: res.data.message });
+        })
+        .catch(err => this.setState({ error: err.message }));
+    };
 
   render() {
     const styles = { 
@@ -138,7 +85,10 @@ class Home extends Component {
         <div className="input-field col s4">
           <input placeholder="Search" id="search" type="text" className="validate"/>
           <label htmlFor="search"></label>
-          
+          <SearchForm
+            handleFormSubmit={this.handleFormSubmit}
+            handleInputChange={this.handleInputChange}
+          />
         </div>
         <div className="col s4">
         </div>

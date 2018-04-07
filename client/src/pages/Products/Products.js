@@ -79,10 +79,10 @@ class Products extends Component {
 
 	render() {
 		return (
-
-
-
-
+			<SearchResults 
+				//this can just call SearchResults and populate 
+				//product searched. won't look pretty!!
+			/>
 		);
 	}
 
