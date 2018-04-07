@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const productController = require("../../controllers/productsController");
+const productController = require("../../controllers/productsController.js");
 
 //rename this file later on
 
