@@ -31,7 +31,6 @@ handleFormSubmit = event => {
       let searchTerm = this.state.searchTerm
       console.log(searchTerm)
       API.getAllProduct()
-           console.log(this.state.products[])
           .then(res => this.setState({ products: res.data, search: ""})
   )
           .catch(err => console.log(err))
@@ -95,11 +94,11 @@ handleFormSubmit = event => {
                   </SearchButton>
                 </div>
                 <List>
-                {this.state.products.map(products => (
-                <ListItem key={products._id}>
-                    <Link to={"/products/" + products.productName}>
+                {this.state.products.map(product => (
+                <ListItem key={product._id}>
+                    <Link to={"/products/" + product.productName}>
                       <strong>
-                        {products.price} {products.serialNumber}
+                        {product.price} {product.serialNumber}
                       </strong>
                     </Link>
                   </ListItem>
