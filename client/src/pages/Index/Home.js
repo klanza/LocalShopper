@@ -5,7 +5,7 @@ import {Inputs, SearchButton} from "../../components/Input"
 import API from "../../utils/API";
 import { Link } from "react-router-dom";
 //import { Col, Row, Container } from "../../components/Grid";
-//import { List, ListItem } from "../../components/List";
+import { List, ListItem } from "../../components/List";
 //import { Input, FormBtn } from "../../components/Form";
 
 class Home extends Component {
@@ -31,8 +31,10 @@ handleFormSubmit = event => {
       let searchTerm = this.state.searchTerm
       console.log(searchTerm)
       API.getAllProduct()
-          .then(res => console.log(res.data))
-          .catch(err => console.log(err));
+           console.log(this.state.products[])
+          .then(res => this.setState({ products: res.data, search: ""})
+  )
+          .catch(err => console.log(err))
   }
 };
 
@@ -92,6 +94,17 @@ handleFormSubmit = event => {
                   >
                   </SearchButton>
                 </div>
+                <List>
+                {this.state.products.map(products => (
+                <ListItem key={products._id}>
+                    <Link to={"/products/" + products.productName}>
+                      <strong>
+                        {products.price} {products.serialNumber}
+                      </strong>
+                    </Link>
+                  </ListItem>
+                ))}
+              </List>
               <div className="col s4">
               </div>
             </div>

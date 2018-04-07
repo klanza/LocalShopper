@@ -125,9 +125,9 @@ const userSeed = [
 },
 ];
 
-async; function seed() {
+async function seed() {
   try {
-    savedUsers = await; Promise.all(userSeed.map((user) => User.create(user).save()));
+    savedUsers = await Promise.all(userSeed.map((user) => User.create(user).save()));
     return Promise.all(productSeed.map((product) => Product.create(product).save()));
   } catch (err) {
       console.log(err);
