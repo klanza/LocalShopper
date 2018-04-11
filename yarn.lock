@@ -2011,9 +2011,9 @@ negotiator@0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
 
-nekodb@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/nekodb/-/nekodb-2.1.0.tgz#33a60dba59a2db6b7a5715412a3f075bc3217635"
+nekodb@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/nekodb/-/nekodb-2.2.0.tgz#9e7c41adfbee9e984acdd05e1d74d2bebb8c68f9"
   dependencies:
     deep-equal "^1.0.1"
     isemail "^3.1.1"
