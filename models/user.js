@@ -11,6 +11,7 @@ const User = ko.Model('User', {
     storeHours: [ko.String],
     $$indexes: {
         username: {
+            required: true,
             unique: true,
         },
     },

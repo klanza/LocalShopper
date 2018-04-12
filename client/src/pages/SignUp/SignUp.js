@@ -13,8 +13,11 @@ import { Col, Row, Container} from "../../components/Grid";
 class Home extends Component {
 
   state = {
-    products:[],
-    searchTerm: ""
+    username: "",
+    password: "",
+    address: "",
+    storeName: "",
+    picture: ""
   };
 
   handleInputChange = event => {
@@ -42,22 +45,58 @@ handleFormSubmit = event => {
       transform: `translateX(${-105}%)`
     };
     return (
+        <div>
+        <Nav>
+        </Nav>
         <Container>
-            <Nav/>
-            <div class="row">
-                <form class="col s12">
-                        <Row>
-                            <div class="input-field col s6 offset-s3">
-                                <i class="material-icons prefix">assignment_ind</i>
-                                <input id="icon_prefix" type="text" class="validate"></input>
-                                <label for="icon_prefix">E-mail</label>
-                            </div>
-                       </Row>
+
+            <Row>
+                <div className="col s6 offset-s2">
+                    <h4 className="">Create your account!</h4>
+                    <h6>You're one step away from setting up your one-stop shop!</h6>
+                </div>
+            </Row>
+            <Row>
+                <form className="col s12">
+                    <Row>
+                        <div className="input-field col s6 offset-s3">
+                            <i className="material-icons prefix">assignment_ind</i>
+                            <input id="icon_prefix" type="text" className="validate"></input>
+                            <label for="icon_prefix">E-mail</label>
+                        </div>
+                    </Row>
+                    <Row>
+                        <div className="input-field col s6 offset-s3">
+                            <i className="material-icons prefix">lock</i>
+                            <input id="icon_prefix" type="text" className="validate"></input>
+                            <label for="icon_prefix">Password</label>
+                        </div>
+                    </Row>
+                        <div className="input-field col s6 offset-s3">
+                            <i className="material-icons prefix">location_city</i>
+                            <input id="icon_prefix" type="text" className="validate"></input>
+                            <label for="icon_prefix">Address</label>
+                        </div>
+                    <Row>
+                        <div className="input-field col s6 offset-s3">
+                            <i className="material-icons prefix">event_note</i>
+                            <input id="icon_prefix" type="text" className="validate"></input>
+                            <label for="icon_prefix">Company Name</label>
+                        </div>
+                    </Row>
+                    <Row>
+                        <div className="input-field col s6 offset-s3">
+                            <i className="material-icons prefix">picture_in_picture</i>
+                            <input id="icon_prefix" type="text" className="validate"></input>
+                            <label for="icon_prefix">Store-front or Location Picture</label>
+                        </div>
+                    </Row>
                 </form>
-            </div>
-            <Footer>
-            </Footer>
+            </Row>
         </Container>
+        <Footer>
+        </Footer>
+        </div>
     );
   }
 }

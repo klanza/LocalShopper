@@ -6,7 +6,7 @@ const Nav = () => (
       <a id="logo-container" href="#" className="brand-logo">Logo</a>
       <ul className="right hide-on-med-and-down">
         <li>
-          <a href="#">Sign Up?</a>
+          <a href="/SignUp">Sign Up?</a>
         </li>
         <li>
         <a href="#">Sign In!</a>
