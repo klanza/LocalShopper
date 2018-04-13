@@ -9,12 +9,6 @@ const User = ko.Model('User', {
     mapLng: ko.Number,
     mapLong: ko.Number,
     storeHours: [ko.String],
-    $$indexes: {
-        username: {
-            required: true,
-            unique: true,
-        },
-    },
 });
 
 module.exports = User;

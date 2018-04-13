@@ -13,13 +13,13 @@ if (process.env.NODE_ENV === "production") {
 // Connect to the Mongo DB through nekodb
 ko.connect({
     client: 'mongodb',
-    url: process.env.MONGODB_URI || 'mongodb://localhost:27017/localshopper'
-})
+    url: process.env.MONGODB_URI || 'mongodb://localhost:27017/localshopper',
+});
 
 // Send every request to the React app
 // Define any API routes before this runs
 
-app.use(routes)
+app.use(routes);
 
 app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
@@ -28,6 +28,3 @@ app.get("*", function(req, res) {
 app.listen(PORT, function() {
   console.log(`🌎 ==> Server now on port ${PORT}!`);
 });
-
-
-

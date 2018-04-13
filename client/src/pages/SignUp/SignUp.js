@@ -5,14 +5,15 @@ import {Inputs, SearchButton} from "../../components/Input"
 import API from "../../utils/API";
 import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
-import Segment from "../../components/Segment";
+// import Segment from "../../components/Segment";
 import { Link } from "react-router-dom";
 import { Col, Row, Container} from "../../components/Grid";
 //import { Input, FormBtn } from "../../components/Form";
 
-class Home extends Component {
+class SignUp extends Component {
 
   state = {
+    user: [],
     username: "",
     password: "",
     address: "",
@@ -28,22 +29,22 @@ class Home extends Component {
     console.log(this.state)
 };
 
-handleFormSubmit = event => {
-  event.preventDefault();
-  if (this.state.searchTerm) {
-      let searchTerm = this.state.searchTerm
-      console.log(searchTerm)
-      API.getAllProduct()
-          .then(res => this.setState({ products: res.data, search: ""})
-  )
-          .catch(err => console.log(err))
-  }
-};
+// handleFormSubmit = event => {
+//   event.preventDefault();
+//   if (this.state.searchTerm) {
+//       let searchTerm = this.state.searchTerm
+//       console.log(searchTerm)
+//       API.getAllProduct()
+//           .then(res => this.setState({ products: res.data, search: ""})
+//   )
+//           .catch(err => console.log(err))
+//   }
+// };
 
   render() {
-    const styles = {
-      transform: `translateX(${-105}%)`
-    };
+    // const styles = {
+    //   transform: `translateX(${-105}%)`
+    // };
     return (
         <div>
         <Nav>
@@ -61,33 +62,58 @@ handleFormSubmit = event => {
                     <Row>
                         <div className="input-field col s6 offset-s3">
                             <i className="material-icons prefix">assignment_ind</i>
-                            <input id="icon_prefix" type="text" className="validate"></input>
+                            <Inputs
+                                value={this.state.username}
+                                onChange={this.handleInputChange}
+                                id="icon_prefix"
+                                name="username"
+                            />
                             <label for="icon_prefix">E-mail</label>
                         </div>
                     </Row>
                     <Row>
                         <div className="input-field col s6 offset-s3">
                             <i className="material-icons prefix">lock</i>
-                            <input id="icon_prefix" type="text" className="validate"></input>
+                            <Inputs
+                                value={this.state.password}
+                                onChange={this.handleInputChange}
+                                id="icon_prefix"
+                                name="password"
+                            />                            
                             <label for="icon_prefix">Password</label>
                         </div>
                     </Row>
                         <div className="input-field col s6 offset-s3">
                             <i className="material-icons prefix">location_city</i>
-                            <input id="icon_prefix" type="text" className="validate"></input>
+                            <Inputs
+                                value={this.state.address}
+                                onChange={this.handleInputChange}
+                                id="icon_prefix"
+                                name="address"
+                            />
                             <label for="icon_prefix">Address</label>
                         </div>
                     <Row>
                         <div className="input-field col s6 offset-s3">
                             <i className="material-icons prefix">event_note</i>
-                            <input id="icon_prefix" type="text" className="validate"></input>
+                            <Inputs
+                                value={this.state.storeName}
+                                onChange={this.handleInputChange}
+                                id="icon_prefix"
+                                name="storeName"
+                            />
                             <label for="icon_prefix">Company Name</label>
                         </div>
                     </Row>
                     <Row>
                         <div className="input-field col s6 offset-s3">
                             <i className="material-icons prefix">picture_in_picture</i>
-                            <input id="icon_prefix" type="text" className="validate"></input>
+                            <Inputs
+                                value={this.state.picture}
+                                onChange={this.handleInputChange}
+                                id="icon_prefix"
+                                name="picture"
+                            />
                             <label for="icon_prefix">Store-front or Location Picture</label>
                         </div>
                     </Row>
@@ -101,4 +127,4 @@ handleFormSubmit = event => {
   }
 }
 
-export default Home;
+export default SignUp;
