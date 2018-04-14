@@ -32,11 +32,10 @@ handleFormSubmit = event => {
   event.preventDefault();
   if (this.state.searchTerm) {
       let searchTerm = this.state.searchTerm
-      console.log(searchTerm)
-      API.getAllProduct()
-          .then(res => this.setState({ products: res.data, search: ""})
-  )
-          .catch(err => console.log(err))
+      console.log(searchTerm);
+      window.location = '/products/'+searchTerm;
+      //source:https://stackoverflow.com/questions/28250103/react-how-to-navigate-via-clickhandlers
+  //    
   }
 };
 
@@ -77,17 +76,17 @@ handleFormSubmit = event => {
                   >
                   </SearchButton>
                 </div>
-                <List>
-                {this.state.products.map(product => (
-                <ListItem key={product._id}>
-                    <Link to={"/products/" + product.productName}>
-                      <strong>
-                        {product.price} {product.serialNumber}
-                      </strong>
-                    </Link>
-                  </ListItem>
-                ))}
-              </List>
+                {/*// <List>
+                // {this.state.products.map(product => (
+                // <ListItem key={product._id}>
+                    // <Link to={"/products" }>
+                    //   <strong>
+                    //     {product.price} {product.serialNumber}
+                    //   </strong>
+                    // </Link>
+              //     </ListItem>
+              //   ))}
+              // </List>*/}
               <div className="col s4">
               </div>
             </div>

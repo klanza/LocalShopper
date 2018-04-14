@@ -1,11 +1,11 @@
 const router = require("express").Router();
-const productController = require("../../controllers/productController");
+const productsController = require("../../controllers/productsController");
 
 //rename this file later on
 
 router.route("/")
-  .get(productController.findAll)
-  .post(productController.create);
+  .get(productsController.findAll)
+  .post(productsController.create);
 
 // router.route("/:name")
 //   .get(productController.findByProductName)
@@ -13,14 +13,15 @@ router.route("/")
 
 router.route("/:id")
   // .get(productController.findById)
-  .put(productController.update)
+  .put(productsController.update)
+  .get(productsController.findAll)
   // .delete(productController.remove);
 
 router.route("/search/:keyword")
-.get(productController.findByKeyword);
+.get(productsController.findByKeyword);
 
 router.route('/upload/:userID')
-.post(productController.uploadWithCSV);
+.post(productsController.uploadWithCSV);
 
 
 module.exports = router;

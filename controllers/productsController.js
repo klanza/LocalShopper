@@ -153,7 +153,7 @@ module.exports = {
           db.Product
             .create(product).save()
             .then(dbModel => console.log(dbModel))
-            .catch(err => console(422).json(err));
+            .catch(err => console.log(err));
       }) 
     };        
   }
