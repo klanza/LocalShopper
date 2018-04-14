@@ -146,10 +146,12 @@ class Products extends Home {
 		                {this.state.products.map(products => (
 		                  <li className="collection-item" key={products._id}>
 		                     
-	                         {products.productName}
-			                 {"       "} <br/>
-			                 {"Price: "}${products.price} <br/>
-			                  {"Seller: "}{products.seller} {/*Does not give seller info need a way to join both DB*/}
+	                        {products.productName}
+			                {"       "} <br/>
+			                {"Price: "}${products.price} <br/>
+							{"Seller: "}{products.seller.storeName}
+							{"Address: "}{products.seller.address}
+
 
 		                   </li>
 		                ))}
