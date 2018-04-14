@@ -21,10 +21,10 @@ export default {
     return axios.post("/api/products", productData);
   },
   getAllUser: function() {
-    return axios.get("/api/user/");
+    return axios.get("/api/users/");
   },
   getUsername: function(username) {
-    return axios.get("/api/user/" + username);
+    return axios.get("/api/users/" + username);
   },
   // Saves user to database
   signup: function(username) {
