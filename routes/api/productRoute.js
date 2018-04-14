@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const productController = require("../../controllers/productsController.js");
+const productController = require("../../controllers/productController");
 
 //rename this file later on
 
@@ -11,10 +11,16 @@ router.route("/")
 //   .get(productController.findByProductName)
 //   .post(productController.create);
 
-router
-  .route("/:id")
+router.route("/:id")
   // .get(productController.findById)
   .put(productController.update)
   // .delete(productController.remove);
+
+router.route("/search/:keyword")
+.get(productController.findByKeyword);
+
+router.route('/upload/:userID')
+.post(productController.uploadWithCSV);
+
 
 module.exports = router;
