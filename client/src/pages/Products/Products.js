@@ -147,9 +147,12 @@ class Products extends Home {
 		                  <li className="collection-item" key={products._id}>
 		                     
 	                        {products.productName}
-			                {"       "} <br/>
-			                {"Price: "}${products.price} <br/>
+							{"       "}
+							<br/>
+							{"Price: "}${products.price}
+							<br/>
 							{"Seller: "}{products.seller.storeName}
+							<br />
 							{"Address: "}{products.seller.address}
 
 
