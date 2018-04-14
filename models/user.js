@@ -33,25 +33,21 @@ const User = ko.Model('User', {
         }
     },
     address: ko.String,
-    picture: ko.String,
+    picture: ko.String.optional(),
     storeName: ko.String,
-    mapLng: ko.Number,
-    mapLong: ko.Number,
-    storeHours: [ko.String],
-    local: {
-		username: { type: String, unique: false, required: false },
-		password: { type: String, unique: false, required: false }
-	},
+    mapLng: ko.Number.optional(),
+    mapLong: ko.Number.optional(),
+    storeHours: [ko.String.optional()],
 });
 
-User.methods = {
-	checkPassword: function(inputPassword) {
-		return bcrypt.compareSync(inputPassword, this.local.password)
-	},
-	hashPassword: plainTextPassword => {
-		return bcrypt.hashSync(plainTextPassword, 10)
-	}
-}
+// User.methods = {
+// 	checkPassword: function(inputPassword) {
+// 		return bcrypt.compareSync(inputPassword, this.local.password)
+// 	},
+// 	hashPassword: plainTextPassword => {
+// 		return bcrypt.hashSync(plainTextPassword, 10)
+// 	}
+// }
 
 // User.pre('save', function(next) {
 // 	if (!this.local.password) {

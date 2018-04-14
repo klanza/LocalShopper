@@ -19,5 +19,15 @@ export default {
   // Saves a product to the database
   saveProduct: function(productData) {
     return axios.post("/api/products", productData);
+  },
+  getAllUser: function() {
+    return axios.get("/api/user/");
+  },
+  getUsername: function(username) {
+    return axios.get("/api/user/" + username);
+  },
+  // Saves user to database
+  signup: function(username) {
+    return axios.post("/api/users", username);
   }
 };

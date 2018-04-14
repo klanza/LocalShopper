@@ -9,6 +9,8 @@ class SignupForm extends Component {
 			username: '',
 			password: '',
 			confirmPassword: '',
+			address: '',
+			storeName: '',
 			redirectTo: null
 		}
 		this.handleSubmit = this.handleSubmit.bind(this)
@@ -25,8 +27,10 @@ class SignupForm extends Component {
 		axios
 			.post('/auth/signup', {
 				username: this.state.username,
-				password: this.state.password
-			})
+				password: this.state.password,
+				address: this.state.address,
+				storeName: this.state.storeName
+				})
 			.then(response => {
 				console.log(response)
 				if (!response.data.errmsg) {
@@ -37,7 +41,7 @@ class SignupForm extends Component {
 				} else {
 					console.log('duplicate')
 				}
-			})
+			}).catch(err => console.log(err));
 	}
 	render() {
 		if (this.state.redirectTo) {
@@ -67,8 +71,22 @@ class SignupForm extends Component {
 					value={this.state.confirmPassword}
 					onChange={this.handleChange}
 				/>
+				<label htmlFor="address">Store Address: </label>
+				<input
+					type="text"
+					name="address"
+					value={this.state.address}
+					onChange={this.handleChange}
+				/>
+				<label htmlFor="storeName">Name of your store: </label>
+				<input
+					type="text"
+					name="storeName"
+					value={this.state.storeName}
+					onChange={this.handleChange}
+				/>
 				<button onClick={this.handleSubmit}>Sign up</button>
-			</div>
+				</div>
 		)
 	}
 }
