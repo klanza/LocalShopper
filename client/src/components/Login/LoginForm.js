@@ -1,61 +1,88 @@
-import React, { Component } from 'react'
+import React from 'react';
+import { Row, Input, Button } from 'react-materialize';
+import API from '../../utils/API';
 import { Redirect } from 'react-router-dom'
 
-class LoginForm extends Component {
-	constructor() {
-		super()
-		this.state = {
-			username: '',
-			password: '',
-			redirectTo: null
-		}
-		this.handleSubmit = this.handleSubmit.bind(this)
-		this.handleChange = this.handleChange.bind(this)
-	}
+export class LoginForm extends React.Component {
+  //give state error fields to set to the error 
+  state = {
+    username: '',
+    password: '',
+    message: 'Enter your username and password',
+    systemError: false,
+    redirectTo: null
+  };
 
-	handleChange(event) {
-		this.setState({
-			[event.target.name]: event.target.value
-		})
-	}
+  handleChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value,
+    });
+  }
 
-	handleSubmit(event) {
-		event.preventDefault()
-		console.log('handleSubmit')
-		this.props._login(this.state.username, this.state.password)
-		this.setState({
-			redirectTo: '/'
-		})
-	}
+  handleSubmit = event => {
+    event.preventDefault();
+    //set timeout because i got stuck in a request that wasn't being caught 
+    setTimeout(() => {
+      API.getVerification(this.state.username, this.state.password).then((res) => {
+        //message comes from loginController from passport localStrategy!!
+        if (res.data.message === 'Incorrect username' || res.data.message === 'Incorrect password') {
+          this.setState({
+            systemError: true,
+            message: 'Incorrect username or password',
+          });
+        } else {
+          this.setState({
+            systemError: false,
+            message: '',
+            //set this route to default user page
+            redirectTo: '/'
+          });
+        console.log('welcome')
+        }
+      })
+      .catch(err => {
+        this.setState({
+          systemError: true,
+          message: 'Something went wrong',
+        });
+      });
+    }, 2000);
+  }
 
-	render() {
-		if (this.state.redirectTo) {
-			return <Redirect to={{ pathname: this.state.redirectTo }} />
-		} else {
-			return (
-				<div className="LoginForm">
-					<h1>Login form</h1>
-					<form>
-						<label htmlFor="username">Username: </label>
-						<input
-							type="text"
-							name="username"
-							value={this.state.username}
-							onChange={this.handleChange}
-						/>
-						<label htmlFor="password">Password: </label>
-						<input
-							type="password"
-							name="password"
-							value={this.state.password}
-							onChange={this.handleChange}
-						/>
-						<button onClick={this.handleSubmit}>Login</button>
-					</form>
-				</div>
-			)
-		}
-	}
+  //button disabled so don't have to use express-validator
+  render() {
+    if (this.state.redirectTo) {
+      return <Redirect to={{ pathname: this.state.redirectTo }} />
+    } else {
+      return (
+        <div>
+          <div className="LoginForm">
+            <Input
+              label="Username"
+              name="username"
+              value={this.state.username}
+              onChange={this.handleChange}
+            />
+            <Input
+              label="Password"
+              name="password"
+              type="password"
+              value={this.state.password}
+              onChange={this.handleChange}
+            />
+          </div>
+            <span className="err-msg err-msg-login">{this.state.message}</span>
+          <Button
+            disabled={!this.state.username || !this.state.password}
+            onClick={this.handleSubmit}
+          >
+            Log In
+          </Button>
+        </div>
+      );
+    }
+  }
 }
 
 export default LoginForm

@@ -9,35 +9,35 @@ const Password = ko.String.minlength(8)
                           .match(/\d/)
 
 const User = ko.Model('User', {
-    _id: ko.Number,
     username: ko.String,
-    password: Password,
-    $$hooks: {
-        presave: (user, next) => {
-            if (user.isUpdated('password')) {
-                bcrypt.hash(user.password, saltRounds, function (err, hash) {
-                    if (err) {
-                        return next(err)
-                    }
-                    user.password = hash
-                    next()
-                })
-            } else {
-            next()
-        }
-        }
-    },
+    hash: ko.String,
+    salt: ko.String,
+    // $$hooks: {
+    //     presave: (user, next) => {
+    //         if (user.isUpdated('password')) {
+    //             bcrypt.hash(user.password, saltRounds, function (err, hash) {
+    //                 if (err) {
+    //                     return next(err)
+    //                 }
+    //                 user.password = hash
+    //                 next()
+    //             })
+    //         } else {
+    //         next()
+    //     }
+    //     }
+    // },
     $$indexes: {
         username: {
             unique: true
         }
     },
-    address: ko.String,
+    address: ko.String.optional(),
     picture: ko.String.optional(),
-    storeName: ko.String,
+    storeName: ko.String.optional(),
     mapLng: ko.Number.optional(),
     mapLong: ko.Number.optional(),
-    storeHours: [ko.String.optional()],
+    storeHours: [ko.String, null],
 });
 
 // User.methods = {

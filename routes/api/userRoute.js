@@ -1,20 +1,39 @@
 const router = require("express").Router();
 const userController = require("../../controllers/usersController.js");
-
-//rename this file later on
+const passport = require('passport');
 
 router.route("/")
-  .get(userController.findAll)
-  .post(userController.create);
+	.get(userController.findAll);
 
-// router.route("/:name")
-//   .get(userController.findByProductName)
-//   .post(userController.create);
+// this route is just used to get the user basic info
+// router.get('/user', (req, res, next) => {
+// 	console.log('===== user!!======')
+// 	console.log(req.user)
+// 	if (req.user) {
+// 		return res.json({ user: req.user })
+// 	} else {
+// 		return res.json({ user: null })
+// 	}
+// })
 
+// Matches with "/api/users"
 router
-  .route("/:username")
-  // .get(userController.findByUsername)
-  .put(userController.update)
-  // .delete(userController.remove);
+  .post('/', userController.create)
+  .post('/login', userController.login)
+  // .post('/login', passport.authenticate('local', { successRedirect: '/',
+  //                                                   failureRedirect: '/login' }));
+
+// clear cookie/connect.sid session. 
+  router.post('/logout', (req, res) => {
+	if (req.user) {
+		req.session.destroy()
+		res.clearCookie('connect.sid') 
+		return res.json({ msg: 'logging you out' })
+	} else {
+		return res.json({ msg: 'no user to log out!' })
+	}
+})
+
+  
 
 module.exports = router;

@@ -23,11 +23,10 @@ export default {
   getAllUser: function() {
     return axios.get("/api/users/");
   },
-  getUsername: function(username) {
-    return axios.get("/api/users/" + username);
-  },
-  // Saves user to database
-  signup: function(username) {
-    return axios.post("/api/users", username);
-  }
+  // Username will be matched to the password to verify the user and
+  // access to the users profile page will be given
+  getVerification: (username, password) => axios.post('/api/users/login', { username, password }),
+
+  // New user will be created
+  createUser: newUser => axios.post('/api/users', newUser),
 };
