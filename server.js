@@ -12,11 +12,9 @@ const app = express();
 const morgan = require('morgan')
 const session = require('express-session')
 const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser')
 const passport = require('passport');
 const MongoStore = require('connect-mongo')(session)
 // const dbConnection = require('./models') // loads our connection to the mongo database
-const routes = require('./routes')
 const login = require('./controllers/loginController');
 
 

@@ -9,7 +9,7 @@ const Nav = () => (
           <a href="/SignUp">Sign Up?</a>
         </li>
         <li>
-        <a href="#">Sign In!</a>
+        <a href="/SignIn">Sign In!</a>
         </li>
       </ul>
 
