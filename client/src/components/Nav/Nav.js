@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const Nav = () => (
   <nav className="green lighten-1" role="navigation">
@@ -6,20 +6,26 @@ const Nav = () => (
       <a id="logo-container" href="#" className="brand-logo">Logo</a>
       <ul className="right hide-on-med-and-down">
         <li>
-          <a href="#">Login</a>
+          <a href="/SignUp">Sign Up?</a>
+        </li>
+        <li>
+        <a href="#">Sign In!</a>
         </li>
       </ul>
 
       <ul id="nav-mobile" className="sidenav">
+      <li>
+          <a href="#">Sign Up?</a>
+        </li>
         <li>
-          <a href="#">Login</a>
+        <a href="#">Sign In!</a>
         </li>
       </ul>
       <a href="#" data-target="nav-mobile" className="sidenav-trigger">
         <i className="material-icons">menu</i>
       </a>
     </div>
-     </nav>
+  </nav>
 );
 
 export default Nav;

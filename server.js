@@ -43,7 +43,7 @@ app.use(
 app.use(passport.initialize())
 app.use(passport.session()) // will call the deserializeUser
 
-app.use(routes)
+app.use(routes);
 
 login(app);
 
@@ -56,5 +56,3 @@ app.listen(PORT, function() {
 });
 
 module.exports = app;
-
-
