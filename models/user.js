@@ -1,5 +1,5 @@
 const ko = require('nekodb');
-const bcrypt = require('bcrypt'); 
+const bcrypt = require('bcryptjs'); 
 const saltRounds = process.env.SALTROUNDS;
 
 // contains at least 1 lowercase, 1 uppercase, and one number

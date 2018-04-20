@@ -1,5 +1,5 @@
 // require bcrypt
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 // require models
 const db = require('../models');
 // require passport
@@ -29,8 +29,8 @@ module.exports = () => {
   passport.serializeUser((user, done) => {
     done(null, user.username);
   });
-  passport.deserializeUser((id, done) => {
-    db.User.findById(id)
+  passport.deserializeUser((username, done) => {
+    db.User.findOne(username)
       .then((user) => {
         if (user == null) {
           done(new Error('Wrong user id.'));
