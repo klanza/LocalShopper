@@ -5,8 +5,11 @@ import Home from "./pages/Index";
 import NoMatch from "./pages/NoMatch";
 import SignUp from "./pages/SignUp"
 import SignIn from "./pages/SignIn"
+import Products from "./pages/Products";
 import logo from './logo.svg';
 import './App.css';
+// import logo from './logo.svg';
+// import './App.css';
 
 
 const App = () => (

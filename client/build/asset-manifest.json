@@ -1,12 +1,7 @@
 {
-  "main.css": "static/css/main.c17080f1.css",
-  "main.css.map": "static/css/main.c17080f1.css.map",
-<<<<<<< Updated upstream
-  "main.js": "static/js/main.f74ccb37.js",
-  "main.js.map": "static/js/main.f74ccb37.js.map",
-=======
-  "main.js": "static/js/main.fc13f5ba.js",
-  "main.js.map": "static/js/main.fc13f5ba.js.map",
->>>>>>> Stashed changes
-  "static\\media\\logo.svg": "static/media/logo.5d5d9eef.svg"
+
+  "main.css": "static/css/main.65027555.css",
+  "main.css.map": "static/css/main.65027555.css.map",
+  "main.js": "static/js/main.0a231792.js",
+  "main.js.map": "static/js/main.0a231792.js.map"
 }

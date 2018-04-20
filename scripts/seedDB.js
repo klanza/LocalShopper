@@ -29,7 +29,7 @@ const productSeed = [
     serialNumber: 'LIL-13800',
     price: 26.97,
     seller: 0,
-    keywords: ['water pump tool', 'water pump', 'ecotec', '2.2l', '2.4l', 'GM', 'Chevy'],
+    keywords: ['water pump tool','water', 'water pump', 'ecotec', '2.2l', '2.4l', 'GM', 'Chevy'],
   },
   {
     productName: 'Plantronics Backbeat Fit Bluetooth Headphones',
@@ -38,7 +38,7 @@ const productSeed = [
     serialNumber: '49166404',
     price: 84.99,
     seller: 1,
-    keywords: ['bluetooth headphones', 'sport headphones', 'Pantronics', 'Backbeat Fit'],
+    keywords: ['bluetooth headphones', 'headphone','sport headphones', 'Pantronics', 'Backbeat Fit'],
   },
   {
     productName: 'Plantron BackBeat GO 3 Wireless Earbuds with Charging Case',
@@ -47,7 +47,7 @@ const productSeed = [
     serialNumber: '204353-01',
     price: 89.99,
     seller: 1,
-    keywords: ['bluetooth headphones', 'sport headphones', 'Pantronics', 'Backbeat Go', 'earbuds', 'bluetooth earbuds'],
+    keywords: ['bluetooth headphones', 'headphone','sport headphones', 'Pantronics', 'Backbeat Go', 'earbuds', 'bluetooth earbuds'],
   },
   {
     productName: 'Yamaha F325D Acoustic Guitar',
