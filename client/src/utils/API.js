@@ -1,26 +1,26 @@
-import axios from "axios";
+import axios from 'axios';
 
-//use axios to do api calls
+// use axios to do api calls
 export default {
-  getAllProduct: function() {
+  getAllProduct() {
     return axios.get("/api/products/");
   },
-  getProductName: function(productName) {
+  getProductName(productName) {
     return axios.get("/api/products/" + productName);
   },
   // Gets the product with the given id
-  getProduct: function(id) {
+  getProduct(id) {
     return axios.get("/api/products/" + id);
   },
   // Deletes the product with the given id
-  deleteProduct: function(id) {
+  deleteProduct(id) {
     return axios.delete("/api/products/" + id);
   },
   // Saves a product to the database
-  saveProduct: function(productData) {
+  saveProduct(productData) {
     return axios.post("/api/products", productData);
   },
-  getAllUser: function() {
+  getAllUser() {
     return axios.get("/api/users/");
   },
   // Username will be matched to the password to verify the user and

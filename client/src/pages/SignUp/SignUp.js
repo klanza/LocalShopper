@@ -9,6 +9,8 @@ import Footer from '../../components/Footer';
 import { Link } from 'react-router-dom';
 import { Col, Row, Container } from '../../components/Grid';
 //import { Input, FormBtn } from '../../components/Form';
+import { Redirect } from 'react-router-dom'
+import { Input, Button, } from 'react-materialize';
 
 class SignUp extends Component {
 
@@ -23,7 +25,8 @@ class SignUp extends Component {
         errorMsg: '',
         address: '',
         storeName: '',
-        picture: ''
+        picture: '',
+        redirectTo: null
     };
 
     handleInputChange = event => {
@@ -78,6 +81,9 @@ class SignUp extends Component {
             const newUser = {
                 username: this.state.username,
                 password: this.state.password,
+                address: this.state.address,
+                storeName: this.state.storeName,
+                picture: this.state.picture,
             };
             this.setState({ preloader: true });
             setTimeout(() => {
@@ -139,6 +145,9 @@ class SignUp extends Component {
         // const styles = {
         //   transform: `translateX(${-105}%)`
         // };
+        if (this.state.redirectTo) {
+            return <Redirect to={{ pathname: this.state.redirectTo }} />
+        }
         return (
             <div>
                 <Nav>
@@ -173,6 +182,7 @@ class SignUp extends Component {
                                         onChange={this.handleInputChange}
                                         id='icon_prefix'
                                         name='password'
+                                        type='password'
                                     />
                                     <label for='icon_prefix'>Password</label>
                                 </div>
@@ -181,10 +191,11 @@ class SignUp extends Component {
                                 <div className='input-field col s6 offset-s3'>
                                     <i className='material-icons prefix'>lock_outline</i>
                                     <Inputs
-                                        value={this.state.password}
+                                        value={this.state.confirm}
                                         onChange={this.handleInputChange}
                                         id='icon_prefix'
-                                        name='password'
+                                        type='password'
+                                        name='confirm'
                                     />
                                     <label for='icon_prefix'>Confirm Password</label>
                                 </div>
@@ -223,6 +234,13 @@ class SignUp extends Component {
                                     <label for='icon_prefix'>Store-front or Location Picture</label>
                                 </div>
                             </Row>
+                            <Button
+                                disabled={!this.state.username || !this.state.password || !this.state.confirm}
+                                onClick={this.handleSubmit}
+                                className="btn-form"
+                            >
+                                Create
+                            </Button>
                         </form>
                     </Row>
                 </Container>

@@ -25,12 +25,12 @@ module.exports = () => {
       }).catch(err => console.error(err));
   }));
 
-  //passport will authenticate and create the cookie!
+  // passport will authenticate and create the cookie!
   passport.serializeUser((user, done) => {
     done(null, user.username);
   });
   passport.deserializeUser((username, done) => {
-    db.User.findOne(username)
+    db.User.findOne({ username })
       .then((user) => {
         if (user == null) {
           done(new Error('Wrong user id.'));
@@ -39,13 +39,13 @@ module.exports = () => {
       });
   });
 
-  //function to call in route to make only logged in user be able to see page
-  function authenticationMiddleware () {  
-  return (req, res, next) => {
-    console.log(`req.session.passport.user: ${JSON.stringify(req.session.passport)}`);
+  // function to call in route to make only logged in user be able to see page
+  function authenticationMiddleware() {
+    return (req, res, next) => {
+      console.log(`req.session.passport.user: ${JSON.stringify(req.session.passport)}`);
 
       if (req.isAuthenticated()) return next();
-      res.redirect('/login')
+      res.redirect('/login');
+    };
   }
-}
 };

@@ -12,6 +12,13 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   // from passport docs, last example using callback. look in to flash messages?
+  currentUser: (req, res) => {
+    console.log(req.user.username);
+    console.log(req.user._id)
+    console.log(req.session.user);
+    console.log(req.session);
+    res.send();
+  },
   login: (req, res, next) => {
     passport.authenticate('local', (err, user, info) => {
       if (err) { return next(err); }
@@ -35,7 +42,10 @@ module.exports = {
         const localshopper = {
           username: req.body.username,
           hash: hashWord,
-          salt,
+          salt: salt,
+          address: req.body.address,
+          picture: req.body.picture,
+          storeName: req.body.storeName,
         };
         db.User.create(localshopper).save().then(instance => res.json(instance)).catch(err => console.dir(err));
       } else {
