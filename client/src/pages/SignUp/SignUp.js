@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import {Inputs, SearchButton} from "../../components/Input"
+import {Button, Icon} from 'react-materialize';
 //import {DeleteBtn,SaveBtn} from "../../components/DeleteBtn";
 //import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
@@ -52,7 +53,7 @@ class SignUp extends Component {
         <Container>
 
             <Row>
-                <div className="col s6 offset-s2">
+                <div className="col s6 offset-s3">
                     <h4 className="">Create your account!</h4>
                     <h6>You're one step away from setting up your one-stop shop!</h6>
                 </div>
@@ -116,6 +117,9 @@ class SignUp extends Component {
                             />
                             <label for="icon_prefix">Store-front or Location Picture</label>
                         </div>
+                    </Row>
+                    <Row>
+                        <Button className= "col s6 offset-s3 green lighten-1" waves='light'>Create Account<Icon right>send</Icon></Button>
                     </Row>
                 </form>
             </Row>

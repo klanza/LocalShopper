@@ -24,10 +24,7 @@
   "homepage": "https://github.com/klanza/LocalShopper#readme",
   "dependencies": {
     "axios": "^0.18.0",
-<<<<<<< Updated upstream
-=======
     "bcryptjs": "^2.4.3",
->>>>>>> Stashed changes
     "body-parser": "^1.18.2",
     "concurrently": "^3.5.1",
     "eslint": "^4.19.1",
