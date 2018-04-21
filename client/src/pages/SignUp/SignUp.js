@@ -238,8 +238,7 @@ class SignUp extends Component {
                                 disabled={!this.state.username || !this.state.password || !this.state.confirm}
                                 onClick={this.handleSubmit}
                                 className="btn-form"
-                            >
-                                Create
+                            >Create
                             </Button>
                         </form>
                     </Row>

@@ -142,7 +142,7 @@ class Products extends Home {
 	              
     
 		              <ul className="collection with-header">
-		              <li class="collection-header"><h4>{(this.props.match.params.id).toUpperCase()}</h4></li>
+		              <li className="collection-header"><h4>{(this.props.match.params.id).toUpperCase()}</h4></li>
 		                {this.state.products.map(products => (
 		                  <li className="collection-item" key={products._id}>
 		                     

@@ -14,7 +14,7 @@ module.exports = {
   // from passport docs, last example using callback. look in to flash messages?
   currentUser: (req, res) => {
     console.log(req.user.username);
-    console.log(req.user._id)
+    console.log(req.user._id);
     console.log(req.session.user);
     console.log(req.session);
     res.send();
@@ -28,6 +28,11 @@ module.exports = {
         return res.redirect('/');
       });
     })(req, res, next);
+  },
+  logout: (req, res) => {
+    req.logout();
+    res.send();
+    res.redirect('/');
   },
   create: (req, res) => {
     // count returns every instance of username found in db
