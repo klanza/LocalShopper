@@ -16,10 +16,10 @@ const Nav = () => (
 
       <ul id="nav-mobile" className="sidenav">
       <li>
-          <a href="#">Sign Up?</a>
+          <a href="/SignUp">Sign Up?</a>
         </li>
         <li>
-        <a href="#">Sign In!</a>
+        <a href="/SignIn">Sign In!</a>
         </li>
       </ul>
       <a href="#" data-target="nav-mobile" className="sidenav-trigger">

@@ -1,0 +1,14 @@
+#
+# GitPitch Slideshow Custom Settings
+#
+# For details, visit Wiki:
+# https://github.com/gitpitch/gitpitch/wiki/Slideshow-Settings
+#
+theme : beige
+layout : center-left
+background-size : cover
+background-color : #66BB6A
+highlight : atom-one-dark
+transition : none
+published : true
+footnote : "Local Shopper"
