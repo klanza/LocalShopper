@@ -1,104 +1,65 @@
-@title[Introduction]
-# Envelope
-
-### A GitPitch Presentation Template
+# LocalShopper
 
 ---
 
-## Tips!
-
-<br>
-
-@fa[arrows gp-tip](Press F to go Fullscreen)
-
-@fa[microphone gp-tip](Press S for Speaker Notes)
+Local Shopper is a web application designed to solve the problem of needing to purchase a specific product on the same day, but are unsure of where to purchase it. 
 
 ---
 
-## Template Features
-
-- Code Presenting |
-- Repo Source, Static Blocks, GIST |
-- Custom CSS Styling |
-- Slideshow Background Images |
-- Background Image Scaling |
-- Custom Logo, TOC, and Footnotes |
-
----?code=sample/go/server.go&lang=golang&title=Golang File
-
-@[1,3-6](Present code found within any repo source file.)
-@[8-18](Without ever leaving your slideshow.)
-@[19-28](Using GitPitch code-presenting with (optional) annotations.)
+As fast as Amazon is, it is not as fast as driving to a local store and purchasing the product. As a side benefit of speed of purchase, there are no shipping charges. 
 
 ---
 
-@title[JavaScript Block]
-
-<p><span class="slide-title">JavaScript Block</span></p>
-
-```
-
-@[1,2](You can present code inlined within your slide markdown too.)
-@[9-17](Displayed using code-syntax highlighting just like your IDE.)
-@[19-20](Again, all of this without ever leaving your slideshow.)
-
----?gist=onetapbeyond/494e0fecaf0d6a2aa2acadfb8eb9d6e8&lang=scala&title=Scala GIST
-
-@[23](You can even present code found within any GitHub GIST.)
-@[41-53](GIST source code is beautifully rendered on any slide.)
-@[57-62](And code-presenting works seamlessly for GIST too, both online and offline.)
-
----?image=assets/image/snowscape.jpg&size=auto 80%&color=#96d9a4
-
-<!-- Sample slide background image scaling and custom color fill -->
+In addition to competing with Amazon and other online retailers for marketshare, Local Shopper opens up the world of eCommerce to small, locally owned businesses by allowing them to upload their store inventory in a CSV file format, making the process quick and painless.
 
 ---
 
-## Template Help
+## Built With
 
-- [Code Presenting](https://github.com/gitpitch/gitpitch/wiki/Code-Presenting)
-  + [Repo Source](https://github.com/gitpitch/gitpitch/wiki/Code-Delimiter-Slides), [Static Blocks](https://github.com/gitpitch/gitpitch/wiki/Code-Slides), [GIST](https://github.com/gitpitch/gitpitch/wiki/GIST-Slides) 
-- [Custom CSS Styling](https://github.com/gitpitch/gitpitch/wiki/Slideshow-Custom-CSS)
-- [Slideshow Background Images](https://github.com/gitpitch/gitpitch/wiki/Background-Setting)
-- [Background Image Scaling](https://github.com/gitpitch/gitpitch/wiki/Image-Slides#scaling)
-- [Custom Logo](https://github.com/gitpitch/gitpitch/wiki/Logo-Setting), [TOC](https://github.com/gitpitch/gitpitch/wiki/Table-of-Contents), and [Footnotes](https://github.com/gitpitch/gitpitch/wiki/Footnote-Setting)
-
----
-
-## GitPitch Pro Features
-
-<br>
-<div class="left">
-    <i class="fa fa-user-secret fa-5x" aria-hidden="true"> </i><br>
-    <a href="https://gitpitch.com/pro-features" class="pro-link">
-    More details here.</a>
-</div>
-<div class="right">
-    <ul>
-        <li>Private Repos</li>
-        <li>Private URLs</li>
-        <li>Password-Protection</li>
-        <li>Image Opacity</li>
-        <li>SVG Image Support</li>
-    </ul>
-</div>
+* [Node.js](https://nodejs.org/en/) - Command line interface and data manipulation
+* [React](https://reactjs.org/) - A JavaScript library for building user interfaces
+* [Materialize](http://materializecss.com/) - A modern responsive front-end framework based on Material Design
+* [Heroku](https://www.heroku.com/) - Server and database hosting for running application
+* [Express](https://expressjs.com) - Web application and server structure framework
 
 ---
 
-### Questions?
+* [BCrypt](https://www.npmjs.com/package/bcrypt) - A password hashing function
+* [Passport](http://www.passportjs.org/) - Authentication middleware for Node.js
+* [MongoDB](https://www.mongodb.com) -  A free and open-source cross-platform document-oriented database program
+* [NekoDB](https://www.npmjs.com/package/nekodb) - Tiny ODM for MongoDB
+* [CSV to JSON](https://www.npmjs.com/package/csvtojson) - Nodejs csv parser to convert csv to json or column arrays
+* [BusBoy](https://github.com/mscdex/busboy) - A streaming parser for HTML form data for node.js
+* [Express-File Upload](https://www.npmjs.com/package/express-fileupload) - Simple express file upload middleware that wraps around Busboy
 
-<br>
+---
 
-@fa[twitter gp-contact](@gitpitch)
+## Future Growth
 
-@fa[github gp-contact](gitpitch)
+* Integrate with brickseek.com inventory for local results from big box stores.
 
-@fa[medium gp-contact](@gitpitch)
 
----?image=assets/image/gitpitch-audience.jpg
+---
 
-@title[Download this Template!]
+## Authors
 
-### <span class="white">Get your presentation started!</span>
-### [Download this template @fa[external-link gp-download]](https://gitpitch.com/template/download/envelope)
+* **Anindya Gupta** - Full Stack Master
+* **Christopher Clark** - Backend Badass
+* **Darwood Martin** - Full Stack Guru
+* **Luke Stewart** - Front End Dude
+* **Kenneth Lanza** - Full Stack/Project Manager/Overlord
 
+---
+
+## Special thanks to:
+
+* **Jan Jorgenson**
+* **Peter Fesz-Nguyen**
+* **Joel Bojorquez**
+* **Nicholas Green**
+
+---
+
+## Let's do this!
+
+http://localshopper.herokuapp.com/
