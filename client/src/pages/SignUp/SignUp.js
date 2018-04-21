@@ -49,7 +49,7 @@ class SignUp extends Component {
         let result = true;
 
         // Username must consist of letters and/or numbers
-        if (!(/^[a-zA-Z0-9]+$/).test(this.state.username)) {
+        if (!(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/).test(this.state.username)) {
             result = false;
             this.setState({
                 usernameError: 'Use letters and/or numbers only',
