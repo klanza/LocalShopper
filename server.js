@@ -5,7 +5,7 @@ const express = require("express");
 const path = require("path");
 const ko = require('nekodb')
 const routes = require('./routes')
-
+const AWS = require('aws-sdk');
 const PORT = process.env.PORT || 3001;
 
 const app = express();

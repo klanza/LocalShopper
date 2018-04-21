@@ -45,6 +45,13 @@ class User extends Component {
      
             .catch(err => console.log(err))  
     };
+    
+    handleFormSubmit = event => {
+      event.preventDefault();
+      
+          window.location = '/upload1/'+this.state.username;
+           
+    };
 
 
     handleFileUpload = event => {
@@ -61,7 +68,7 @@ class User extends Component {
     };
 
 
-    render(){
+    render() {
 
         var copy = (
             <div>
@@ -77,22 +84,23 @@ class User extends Component {
                         <input type="file" id="file-chooser" />
                             
                             <button className="btn waves-effect waves-light" type="submit" name="action" id="upload-button"  onClick={this.handleFileUpload}>
-                            Upload Your Document
+                            Upload CSV
                                     <i className="material-icons right">cloud</i>
                                 </button>
-
                             <div id="results"></div>
-
                     </CardPanel>
-
-                </Row>   
+                </Row> 
+            <button className="btn waves-effect waves-light" type="submit" name="action"  onClick={this.handleFormSubmit}>
+                Click to upload your documents
+                <i className="material-icons right">cloud</i>
+            </button>
             </div>
-
-        )
+        );
 
         return (
 
-            <div>{copy}
+            <div>
+                {copy}
             </div>
         );
     }
