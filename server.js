@@ -9,6 +9,25 @@ const routes = require('./routes')
 const PORT = process.env.PORT || 3001;
 
 const app = express();
+const morgan = require('morgan')
+const session = require('express-session')
+const cookieParser = require('cookie-parser');
+const passport = require('passport');
+const MongoStore = require('connect-mongo')(session)
+// const dbConnection = require('./models') // loads our connection to the mongo database
+const login = require('./controllers/loginController');
+
+
+
+// ===== Middleware ====
+app.use(morgan('dev'))
+app.use(bodyParser.json())
+app.use(
+	bodyParser.urlencoded({
+		extended: false
+	})
+)
+app.use(cookieParser());
 
 app.use(busboy());
 
@@ -21,16 +40,22 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-// Connect to the Mongo DB through nekodb
-ko.connect({
-    client: 'mongodb',
-    url: process.env.MONGODB_URI || 'mongodb://localhost:27017/localshopper'
-})
+app.use(
+	session({
+		secret: 'localshopperfuckyeah',
+		store: new MongoStore({ url: process.env.MONGODB_URI || 'mongodb://localhost:27017/localshopper' }),
+		resave: false,
+		saveUninitialized: false
+	})
+)
 
-// Send every request to the React app
-// Define any API routes before this runs
+// ===== Passport ====
+app.use(passport.initialize())
+app.use(passport.session()) // will call the deserializeUser
 
-app.use(routes)
+app.use(routes);
+
+login(app);
 
 if (process.env.NODE_ENV === "production") { 
   app.get("*", function(req, res) {
@@ -42,5 +67,4 @@ app.listen(PORT, function() {
   console.log(`🌎 ==> Server now on port ${PORT}!`);
 });
 
-
-
+module.exports = app;

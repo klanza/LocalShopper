@@ -12,9 +12,6 @@ import { List, ListItem } from "../../components/List";
 //import { Input, FormBtn } from "../../components/Form";
 
 class Home extends Component {
-
-
-
   state = {
     products:[],
     searchTerm: ""
