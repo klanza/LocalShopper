@@ -7,6 +7,7 @@ import NoMatch from "./pages/NoMatch";
 import SignUp from "./pages/SignUp"
 import SignIn from "./pages/SignIn"
 import Products from "./pages/Products";
+import User from "./pages/User";
 import logo from './logo.svg';
 import './App.css';
 // import logo from './logo.svg';
@@ -22,6 +23,7 @@ const App = () => (
         <Route exact path="/products/:id" component={Products}/>
         <Route exact path="/SignUp" component={SignUp} />
         <Route exact path="/SignIn" component={SignIn} />
+        <Route exact path="/User" component={User} />
         {/* <Route exact path="/" component={Products} /> */}
         {/* <Route component={NoMatch} /> */}
       </Switch>

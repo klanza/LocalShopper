@@ -237,7 +237,7 @@ class SignUp extends Component {
                             <Button
                                 disabled={!this.state.username || !this.state.password || !this.state.confirm}
                                 onClick={this.handleSubmit}
-                                className="btn-form"
+                                className="col s6 offset-s3 green lighten-1"
                             >
                                 Create
                             </Button>

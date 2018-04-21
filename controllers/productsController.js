@@ -51,7 +51,7 @@ module.exports = {
   // }
 
   uploadWithCSV: function(req, res) {
-    // console.log("route hit");
+    console.log("route hit");
     // console.log(req);
     let busboy = new Busboy({ headers: req.headers });
 

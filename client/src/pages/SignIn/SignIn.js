@@ -43,7 +43,7 @@ class SignIn extends Component {
                         systemError: false,
                         message: '',
                         //set this route to default user page
-                        redirectTo: '/'
+                        redirectTo: '/User'
                     });
                     console.log('welcome')
                 }

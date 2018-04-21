@@ -17,7 +17,7 @@ module.exports = {
     console.log(req.user._id)
     console.log(req.session.user);
     console.log(req.session);
-    res.send();
+    res.json(req.user);
   },
   login: (req, res, next) => {
     passport.authenticate('local', (err, user, info) => {
