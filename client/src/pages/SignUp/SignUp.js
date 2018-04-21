@@ -101,7 +101,7 @@ class SignUp extends Component {
                                 address: '',
                                 storeName: '',
                                 picture: '',
-                                redirectTo: '/signin'
+                                redirectTo: '/SignIn'
                             });
                         } else if (typeof res.data === 'string') {
                             this.setState({
