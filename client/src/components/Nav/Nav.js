@@ -3,7 +3,8 @@ import React from 'react';
 const Nav = () => (
   <nav className="green lighten-1" role="navigation">
     <div className="nav-wrapper container">
-      <a id="logo-container" href="#" className="brand-logo">Logo</a>
+      <a id="logo-container" href="/" className="brand-logo"><i className="large material-icons">directions_runshopping_cart</i>
+</a>
       <ul className="right hide-on-med-and-down">
         <li>
           <a href="/SignUp">Sign Up?</a>
