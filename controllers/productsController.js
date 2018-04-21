@@ -55,10 +55,10 @@ module.exports = {
     // console.log(req);
     let busboy = new Busboy({ headers: req.headers });
     if(req){
-      let file = req.body;
-      console.log(file)
+      let file = Object.keys(req.body).join('');
       // console.log(req.body);
       let seller = req.params.userID
+      console.log(seller);
       let converter = new Converter({});
       converter.fromString(file)
       .on("json", jsonObj => { //single json object will be emitted for each csv line
@@ -96,7 +96,10 @@ module.exports = {
               // Store the found sku data as uploadedSKU
               uploadedProductName = jsonObj[productName];
             //   console.log("productName: " + uploadedProductName);
-              keyWordsArray.push(uploadedProductName);
+              let productArray = uploadedProductName.split('-');
+              productArray.forEach(element => {
+                keyWordsArray.push(element);
+              })
           };
           //----- Searches for the key that contains a upc code or similar
           let upc = keyArray.find( key => {
@@ -143,7 +146,7 @@ module.exports = {
                 "serialNumber": uploadedSerialNumber,
                 "price": uploadedPrice,
                 "seller": seller,
-                "keywords": keyWordsArray 
+                "keywords": keyWordsArray
             };
           console.log("--------------------------------")
           console.log(product);
