@@ -106,7 +106,6 @@ class SignIn extends Component {
                                         />
                                         <label for="icon_prefix">Password</label>
                                     </div>
-                                    <span className="err-msg err-msg-login">{this.state.message}</span>
                                 </Row>
                                 <Row>
                                     <Button
