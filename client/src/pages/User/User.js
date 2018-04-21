@@ -30,6 +30,9 @@ class User extends Component {
         //get all products  
         API.getCurrentUser()
             .then(res => {
+                console.log(res)
+                // console.log(req)
+                // console.log(req.user);
                 this.setState({
                      id: res.data._id,
                      username: res.data.username,
@@ -49,10 +52,10 @@ class User extends Component {
         var fileChooser = document.getElementById('file-chooser');
         var file = fileChooser.files[0];
     //    this.setState({ file: file });
-        
         if (file) {
+            // console.log(file);
             API.uploadCSV( this.state.id , file)
-            .then(res => res.json("File Upload Sucessfull"))
+            // .then(res => res.json("File Upload Sucessfull"))
             .catch(err => console.log(err));
         }
     };

@@ -54,14 +54,13 @@ module.exports = {
     console.log("route hit");
     // console.log(req);
     let busboy = new Busboy({ headers: req.headers });
-
-    if(req.files){
-      let file = req.files;
+    if(req){
+      let file = req.body;
+      console.log(file)
+      // console.log(req.body);
       let seller = req.params.userID
-      // console.log(file);
       let converter = new Converter({});
-
-      converter.fromString(file.element1.data.toString())
+      converter.fromString(file)
       .on("json", jsonObj => { //single json object will be emitted for each csv line
           // console.log(jsonObj);
           // Makes an array of keys, to determine what to grab

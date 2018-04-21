@@ -22,7 +22,7 @@ export default {
   },
   // Upload CSV file containing multiple products to db
   uploadCSV: function(id, file) {
-    return axios.post("/api/products/upload/"+id);
+    return axios.post("/api/products/upload/"+id, file);
   },
   getAllUser() {
     return axios.get("/api/users/");
